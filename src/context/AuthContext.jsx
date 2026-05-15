@@ -44,7 +44,12 @@ export const AuthProvider = ({ children }) => {
       setSession(null);
       setUser(null);
     },
-    signInWithGoogle: () => supabase.auth.signInWithOAuth({ provider: 'google' }),
+    signInWithGoogle: () => supabase.auth.signInWithOAuth({ 
+      provider: 'google',
+      options: {
+        redirectTo: window.location.origin
+      }
+    }),
     resetPassword: (email) => supabase.auth.resetPasswordForEmail(email),
     verifyResetOtp: (email, token) => supabase.auth.verifyOtp({ email, token, type: 'recovery' }),
     updatePassword: (password) => supabase.auth.updateUser({ password }),
