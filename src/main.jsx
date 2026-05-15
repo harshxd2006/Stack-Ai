@@ -15,39 +15,63 @@ import { ThemeProvider } from './context/ThemeContext.jsx'
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { hasError: false, error: null };
+    super(props)
+    this.state = { hasError: false, error: null }
   }
+
   static getDerivedStateFromError(error) {
-    return { hasError: true, error };
+    return { hasError: true, error }
   }
+
+  componentDidCatch(error, info) {
+    console.error('App crashed:', error, info)
+  }
+
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ color: 'white', padding: '40px', background: '#0A0A0F', minHeight: '100vh' }}>
-          <h1>Something went wrong.</h1>
-          <pre style={{ color: '#ff6b6b', fontSize: '14px' }}>
+        <div style={{
+          color: 'white',
+          padding: '40px',
+          background: '#0A0A0F',
+          minHeight: '100vh',
+          fontFamily: 'monospace'
+        }}>
+          <h2 style={{ color: '#ff6b6b' }}>Something went wrong</h2>
+          <pre style={{ color: '#ff6b6b', fontSize: '13px', whiteSpace: 'pre-wrap' }}>
             {this.state.error?.toString()}
           </pre>
+          <button
+            onClick={() => window.location.reload()}
+            style={{
+              marginTop: '20px',
+              padding: '10px 20px',
+              background: '#6C63FF',
+              color: 'white',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer'
+            }}
+          >
+            Reload Page
+          </button>
         </div>
-      );
+      )
     }
-    return this.props.children;
+    return this.props.children
   }
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ErrorBoundary>
-      <HelmetProvider>
-        <BrowserRouter>
-          <ThemeProvider>
-            <AuthProvider>
-              <App />
-            </AuthProvider>
-          </ThemeProvider>
-        </BrowserRouter>
-      </HelmetProvider>
-    </ErrorBoundary>
-  </React.StrictMode>,
+  <ErrorBoundary>
+    <HelmetProvider>
+      <BrowserRouter>
+        <ThemeProvider>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </ThemeProvider>
+      </BrowserRouter>
+    </HelmetProvider>
+  </ErrorBoundary>
 )

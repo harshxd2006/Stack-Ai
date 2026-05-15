@@ -46,7 +46,9 @@ const ProfilePage = () => {
             </div>
             <div>
               <span className="text-gray-500 block">Joined</span>
-              <span className="text-gray-200">{new Date(user?.created_at).toLocaleDateString()}</span>
+              <span className="text-gray-200">
+                {user?.created_at ? new Date(user.created_at).toLocaleDateString() : 'N/A'}
+              </span>
             </div>
           </div>
         </div>
