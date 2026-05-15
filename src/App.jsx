@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import PageLayout from './components/layout/PageLayout';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import Spinner from './components/ui/Spinner';
+import IntroLandingPage from './pages/IntroLandingPage';
 
 // Lazy loading pages
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -23,10 +24,26 @@ const TrendingPage = lazy(() => import('./pages/TrendingPage'));
 
 function App() {
   const location = useLocation();
+  const [introSeen, setIntroSeen] = useState(true);
+
+  useEffect(() => {
+    // Check if intro has been seen
+    const seen = localStorage.getItem('intro_seen');
+    if (seen !== 'true') {
+      setIntroSeen(false);
+    }
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location.pathname]);
+  }, [location.pathname, introSeen]);
+
+  if (!introSeen) {
+    return <IntroLandingPage onComplete={() => {
+      localStorage.setItem('intro_seen', 'true');
+      setIntroSeen(true);
+    }} />;
+  }
 
   return (
     <PageLayout>
