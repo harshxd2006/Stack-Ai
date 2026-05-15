@@ -16,13 +16,13 @@ const ProfilePage = () => {
       className="container mx-auto px-4 py-12 max-w-4xl min-h-[80vh]"
     >
       <SEO title="Your Profile - StackAi" />
-      
+
       <div className="bg-card/50 border border-white/5 rounded-2xl p-8 mb-8 backdrop-blur-sm">
         <div className="flex flex-col md:flex-row items-center gap-6">
-          <Avatar 
-            src={user?.user_metadata?.avatar_url} 
-            fallback={user?.email?.charAt(0).toUpperCase()} 
-            size="xl" 
+          <Avatar
+            url={user?.user_metadata?.avatar_url}
+            name={user?.user_metadata?.full_name || user?.email}
+            size="xl"
           />
           <div className="text-center md:text-left flex-1">
             <h1 className="text-3xl font-bold font-syne text-white mb-2">
@@ -35,7 +35,7 @@ const ProfilePage = () => {
           </Button>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-card border border-white/5 rounded-2xl p-6">
           <h2 className="text-xl font-bold text-white mb-4">Account Details</h2>
@@ -50,7 +50,7 @@ const ProfilePage = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="bg-card border border-white/5 rounded-2xl p-6">
           <h2 className="text-xl font-bold text-white mb-4">Your Activity</h2>
           <p className="text-gray-400">Your recent reviews and interactions will appear here.</p>

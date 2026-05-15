@@ -14,8 +14,13 @@ export default defineConfig({
       output: {
         manualChunks: (id) => {
           if (id.includes('node_modules')) {
-            if (id.includes('react')) return 'vendor-react'
-            if (id.includes('framer-motion')) return 'vendor-motion'
+            // Keep React and framer-motion in the SAME chunk
+            // to avoid forwardRef being undefined
+            if (id.includes('react') ||
+              id.includes('framer-motion') ||
+              id.includes('scheduler')) {
+              return 'vendor-react'
+            }
             if (id.includes('@supabase')) return 'vendor-supabase'
             return 'vendor'
           }

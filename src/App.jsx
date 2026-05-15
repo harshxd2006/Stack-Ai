@@ -27,10 +27,13 @@ function App() {
   const [introSeen, setIntroSeen] = useState(true);
 
   useEffect(() => {
-    // Check if intro has been seen
-    const seen = localStorage.getItem('intro_seen');
-    if (seen !== 'true') {
-      setIntroSeen(false);
+    try {
+      const seen = localStorage.getItem('intro_seen');
+      if (seen !== 'true') {
+        setIntroSeen(false);
+      }
+    } catch (e) {
+      setIntroSeen(true); // skip intro if localStorage blocked
     }
   }, []);
 
@@ -53,10 +56,10 @@ function App() {
             <Route path="/tool/:slug" element={<ToolDetailPage />} />
             <Route path="/search" element={<SearchResultsPage />} />
             <Route path="/trending" element={<TrendingPage />} />
-            
+
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            
+
             <Route element={<ProtectedRoute />}>
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/bookmarks" element={<BookmarksPage />} />
@@ -65,7 +68,7 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsOfServicePage />} />
-            
+
             <Route path="/admin" element={<AdminPage />} />
 
             <Route path="*" element={<NotFoundPage />} />
