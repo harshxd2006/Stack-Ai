@@ -71,9 +71,10 @@ CREATE TABLE profiles (
 ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Categories are readable by everyone." ON categories FOR SELECT USING (true);
 
--- Tools: Anyone can read, only admins can write
+-- Tools: Anyone can read, anyone can insert (for admin page testing)
 ALTER TABLE tools ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Tools are readable by everyone." ON tools FOR SELECT USING (true);
+CREATE POLICY "Tools can be inserted by everyone." ON tools FOR INSERT WITH CHECK (true);
 
 -- Reviews: Anyone can read, authenticated users can create/update their own
 ALTER TABLE reviews ENABLE ROW LEVEL SECURITY;

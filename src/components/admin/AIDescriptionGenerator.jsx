@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { supabase } from '../../lib/supabaseClient';
 
 const GEMINI_MODELS = [
   { id: 'gemini-2.5-flash', name: 'Gemini 2.5 Flash (Fast & Free)' },
   { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro (Advanced)' }
 ];
 
-const CATEGORIES = [
-  'Text & Writing', 'Image Generation', 'Video & Animation', 'Audio & Speech',
-  'Coding & Development', 'Productivity', 'Chatbots & Assistants', '3D & Gaming',
-  'Business & Marketing', 'Other'
-];
+import { useCategories } from '../../hooks/useCategories';
 
 const PRICING_MODELS = ['Free', 'Freemium', 'Paid', 'Free Trial', 'Open Source'];
 
 export default function AIDescriptionGenerator() {
+  const navigate = useNavigate();
+  const { categories } = useCategories();
   const [url, setUrl] = useState('');
   const [model, setModel] = useState(GEMINI_MODELS[0].id);
   const [loading, setLoading] = useState(false);
@@ -67,12 +67,13 @@ export default function AIDescriptionGenerator() {
       const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
       if (!apiKey) throw new Error('Gemini API key is missing. Add VITE_GEMINI_API_KEY to your .env file.');
 
+      const categoryNames = categories && categories.length > 0 ? categories.map(c => c.name).join(', ') : 'Text Generation, Image Generation, Video & Audio, Coding & Development, Productivity';
       const prompt = `
 Extract information about this AI tool from the following webpage content.
 Return ONLY a valid JSON object with the exact keys: "name", "description", "category", "pricing", and "tags".
 - name: The name of the AI tool.
 - description: A short, engaging 2-3 sentence description of what the tool does.
-- category: Pick one from: ${CATEGORIES.join(', ')}. If none fit perfectly, pick the closest one.
+- category: Pick one from: ${categoryNames}. If none fit perfectly, pick the closest one.
 - pricing: Pick one from: ${PRICING_MODELS.join(', ')}.
 - tags: A comma-separated list of up to 5 relevant keywords.
 
@@ -140,10 +141,73 @@ Website Content snippet: ${bodyText}
     alert('JSON copied to clipboard!');
   };
 
-  const handleSaveToSupabase = () => {
-    // Placeholder for actual Supabase save logic
-    console.log('Saving to Supabase:', formData);
-    alert('Save to Supabase triggered! Check console.');
+  const handleSaveToSupabase = async () => {
+    if (!formData.name || !formData.category) {
+      setError('Name and Category are required to save.');
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setStatus('Saving to database...');
+      setError(null);
+
+      // 1. Get the category ID locally
+      const selectedCategory = categories.find(c => c.name === formData.category);
+
+      if (!selectedCategory) {
+        throw new Error('Failed to find matching category. Please select a valid category from the dropdown.');
+      }
+      
+      const categoryId = selectedCategory.id;
+      const categorySlug = selectedCategory.slug;
+
+      // 2. Generate tool slug
+      const toolSlug = formData.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+
+      // 3. Format tags
+      const tagsArray = formData.tags ? formData.tags.split(',').map(t => t.trim()).filter(Boolean) : [];
+
+      // 4. Map pricing type
+      let pricingType = 'free';
+      const pricingLower = formData.pricing.toLowerCase();
+      if (pricingLower.includes('freemium')) pricingType = 'freemium';
+      else if (pricingLower.includes('paid')) pricingType = 'paid';
+
+      // 5. Insert tool
+      const { error: insertError } = await supabase
+        .from('tools')
+        .insert([{
+          name: formData.name,
+          slug: toolSlug,
+          description: formData.description,
+          website_url: formData.website_url,
+          pricing_type: pricingType,
+          category_id: categoryId,
+          tags: tagsArray
+        }]);
+
+      if (insertError) {
+        if (insertError.code === '23505') {
+            throw new Error('A tool with this name/slug already exists.');
+        }
+        throw insertError;
+      }
+
+      setStatus('Successfully saved!');
+      
+      // Navigate to the category to show it
+      setTimeout(() => {
+        navigate(`/category/${categorySlug}`);
+      }, 1500);
+
+    } catch (err) {
+      console.error(err);
+      setError(err.message || 'Failed to save to Supabase');
+      setStatus('');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -255,8 +319,8 @@ Website Content snippet: ${bodyText}
               className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#6C63FF] transition-colors appearance-none"
             >
               <option value="" className="bg-[#0A0A0F] text-gray-500">Select Category</option>
-              {CATEGORIES.map(cat => (
-                <option key={cat} value={cat} className="bg-[#0A0A0F] text-white">{cat}</option>
+              {categories && categories.map(cat => (
+                <option key={cat.id || cat.slug || cat.name} value={cat.name} className="bg-[#0A0A0F] text-white">{cat.name}</option>
               ))}
             </select>
           </div>
