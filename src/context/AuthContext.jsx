@@ -17,9 +17,15 @@ export const AuthProvider = ({ children }) => {
     });
 
     // Listen for changes on auth state (logged in, signed out, etc.)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      setUser(session?.user ?? null);
+    // This perfectly synchronizes state across multiple tabs
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_OUT' || event === 'USER_DELETED') {
+        setSession(null);
+        setUser(null);
+      } else {
+        setSession(session);
+        setUser(session?.user ?? null);
+      }
       setLoading(false);
     });
 
@@ -32,8 +38,16 @@ export const AuthProvider = ({ children }) => {
     loading,
     signIn: (data) => supabase.auth.signInWithPassword(data),
     signUp: (data) => supabase.auth.signUp(data),
-    signOut: () => supabase.auth.signOut(),
+    signOut: async () => {
+      // Forcefully clear session and sign out
+      await supabase.auth.signOut();
+      setSession(null);
+      setUser(null);
+    },
     signInWithGoogle: () => supabase.auth.signInWithOAuth({ provider: 'google' }),
+    resetPassword: (email) => supabase.auth.resetPasswordForEmail(email),
+    verifyResetOtp: (email, token) => supabase.auth.verifyOtp({ email, token, type: 'recovery' }),
+    updatePassword: (password) => supabase.auth.updateUser({ password }),
   };
 
   return (

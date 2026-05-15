@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Button from '../ui/Button';
 import Input from '../ui/Input';
 import PasswordStrength from './PasswordStrength';
@@ -82,7 +82,7 @@ const AuthForm = ({ type = 'login' }) => {
 
       {isLogin && (
         <div className="flex justify-end">
-          <a href="#" className="text-sm text-accent hover:text-accent-hover transition-colors">Forgot password?</a>
+          <Link to="/forgot-password" className="text-sm text-[#7C3AED] hover:text-[#6D28D9] transition-colors">Forgot password?</Link>
         </div>
       )}
 

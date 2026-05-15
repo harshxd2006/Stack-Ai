@@ -79,7 +79,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          {user?.email === import.meta.env.VITE_ADMIN_EMAIL && (
+          {user && import.meta.env.VITE_ADMIN_EMAIL && user.email === import.meta.env.VITE_ADMIN_EMAIL && (
             <Link to="/admin" className="text-[#7C3AED] hover:text-white transition-colors font-medium mr-2">Admin Tools</Link>
           )}
           {user ? (

@@ -13,6 +13,7 @@ const ToolDetailPage = lazy(() => import('./pages/ToolDetailPage'));
 const SearchResultsPage = lazy(() => import('./pages/SearchResultsPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const SignupPage = lazy(() => import('./pages/SignupPage'));
+const ForgotPasswordPage = lazy(() => import('./pages/ForgotPasswordPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const BookmarksPage = lazy(() => import('./pages/BookmarksPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -56,14 +57,15 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<HomePage />} />
             <Route path="/category/:slug" element={<CategoryPage />} />
-            <Route path="/tool/:slug" element={<ToolDetailPage />} />
             <Route path="/search" element={<SearchResultsPage />} />
             <Route path="/trending" element={<TrendingPage />} />
 
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
             <Route element={<ProtectedRoute />}>
+              <Route path="/tool/:slug" element={<ToolDetailPage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/bookmarks" element={<BookmarksPage />} />
             </Route>

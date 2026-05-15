@@ -38,7 +38,7 @@ const MobileMenu = ({ isOpen, onClose, user, onSignOut }) => {
               Trending Engine
             </Link>
             
-            {user?.email === import.meta.env.VITE_ADMIN_EMAIL && (
+            {user && import.meta.env.VITE_ADMIN_EMAIL && user.email === import.meta.env.VITE_ADMIN_EMAIL && (
               <Link to="/admin" onClick={onClose} className="text-[#7C3AED] font-bold">Admin Tools</Link>
             )}
             
