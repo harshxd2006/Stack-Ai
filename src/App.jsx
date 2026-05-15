@@ -19,6 +19,8 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const AdminPage = lazy(() => import('./pages/AdminPage'));
+const TrendingPage = lazy(() => import('./pages/TrendingPage'));
 
 function App() {
   const location = useLocation();
@@ -50,6 +52,7 @@ function App() {
             <Route path="/category/:slug" element={<CategoryPage />} />
             <Route path="/tool/:slug" element={<ToolDetailPage />} />
             <Route path="/search" element={<SearchResultsPage />} />
+            <Route path="/trending" element={<TrendingPage />} />
             
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
@@ -62,6 +65,8 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/terms" element={<TermsOfServicePage />} />
+            
+            <Route path="/admin" element={<AdminPage />} />
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

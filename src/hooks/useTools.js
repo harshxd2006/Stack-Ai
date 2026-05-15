@@ -32,12 +32,19 @@ export const useTools = (options = {}) => {
           query = query.limit(options.limit);
         }
 
-        const { data, error } = await query;
+        // Use Promise.race to enforce a 15 second timeout
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Supabase request timed out after 15 seconds')), 15000)
+        );
+
+        const { data, error } = await Promise.race([query, timeoutPromise]);
 
         if (error) throw error;
-        setTools(data);
+        setTools(data || []);
       } catch (err) {
+        console.error('Tools fetch error:', err);
         setError(err.message);
+        setTools([]);
       } finally {
         setLoading(false);
       }

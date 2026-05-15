@@ -10,6 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
   const { categories: dbCategories } = useCategories();
 
   const isHome = location.pathname === '/';
@@ -40,20 +41,47 @@ const Navbar = () => {
           
           <div className="hidden md:flex items-center gap-6">
             <Link to="/search" className="text-text-muted hover:text-white transition-colors">Search</Link>
+            <Link to="/trending" className="text-text-muted hover:text-white transition-colors flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#6C63FF]"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+              Trending
+            </Link>
             <div className="relative group">
-              <span className="text-text-muted group-hover:text-white transition-colors cursor-pointer">Categories</span>
-              <div className="absolute top-full left-0 mt-4 w-48 glass-card rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                {(dbCategories || []).map(cat => (
-                  <Link key={cat.slug} to={`/category/${cat.slug}`} className="block px-4 py-2 text-sm text-text-muted hover:bg-white/5 hover:text-white">
-                    {cat.name}
-                  </Link>
-                ))}
+              <button 
+                onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
+                onBlur={() => setTimeout(() => setCategoryDropdownOpen(false), 200)}
+                className="text-text-muted hover:text-white transition-colors cursor-pointer py-2 font-medium flex items-center gap-1"
+              >
+                Categories
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 group-hover:rotate-180 ${categoryDropdownOpen ? 'rotate-180' : ''}`}><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div className={`absolute top-[100%] left-0 pt-2 w-56 transition-all duration-200 z-[100] ${categoryDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'}`}>
+                <div className="glass-card rounded-xl py-2 shadow-2xl border border-white/10 bg-[#0A0A0F]/95 backdrop-blur-xl">
+                  {(dbCategories || []).length > 0 ? (
+                    dbCategories.map(cat => (
+                      <Link 
+                        key={cat.slug} 
+                        to={`/category/${cat.slug}`} 
+                        onClick={() => setCategoryDropdownOpen(false)}
+                        className="block px-4 py-2.5 text-sm text-text-muted hover:bg-white/10 hover:text-white transition-colors"
+                      >
+                        {cat.name}
+                      </Link>
+                    ))
+                  ) : (
+                    <div className="px-4 py-3 text-sm text-white/50 text-center">
+                      {dbCategories ? "Loading categories..." : "Categories unavailable"}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <div className="hidden md:flex items-center gap-4">
+          {user?.email === import.meta.env.VITE_ADMIN_EMAIL && (
+            <Link to="/admin" className="text-[#00D4AA] hover:text-white transition-colors font-medium mr-2">Admin Tools</Link>
+          )}
           {user ? (
             <>
               <Link to="/bookmarks" className="text-text-muted hover:text-white">Bookmarks</Link>

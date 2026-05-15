@@ -18,7 +18,7 @@ const ToolCard = ({ tool }) => {
               <span className="text-xl font-bold">{tool.name?.charAt(0)}</span>
             )}
           </div>
-          <PricingBadge pricing={tool.pricing_model} price={tool.starting_price} />
+          <PricingBadge pricing={tool.pricing_type} price={tool.starting_price} />
         </div>
         
         <h3 className="text-lg font-bold mb-2 group-hover:text-accent transition-colors">{tool.name}</h3>

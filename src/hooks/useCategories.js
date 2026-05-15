@@ -10,12 +10,21 @@ export const useCategories = () => {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        const { data, error } = await supabase.from('categories').select('*').order('name');
+        
+        // Use Promise.race to enforce a 15 second timeout
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Supabase request timed out after 15 seconds')), 15000)
+        );
+        
+        const fetchPromise = supabase.from('categories').select('*').order('name');
+        const { data, error } = await Promise.race([fetchPromise, timeoutPromise]);
         
         if (error) throw error;
-        setCategories(data);
+        setCategories(data || []);
       } catch (err) {
+        console.error('Category fetch error:', err);
         setError(err.message);
+        setCategories([]);
       } finally {
         setLoading(false);
       }
