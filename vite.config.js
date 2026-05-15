@@ -12,17 +12,24 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            // Keep React and framer-motion in the SAME chunk
-            // to avoid forwardRef being undefined
-            if (id.includes('react') ||
-              id.includes('framer-motion') ||
-              id.includes('scheduler')) {
-              return 'vendor-react'
-            }
-            if (id.includes('@supabase')) return 'vendor-supabase'
-            return 'vendor'
+        manualChunks(id) {
+          // Keep ALL react-related packages in one single chunk
+          // This prevents forwardRef from being undefined
+          if (
+            id.includes('node_modules/react/') ||
+            id.includes('node_modules/react-dom/') ||
+            id.includes('node_modules/react-router') ||
+            id.includes('node_modules/scheduler/') ||
+            id.includes('node_modules/framer-motion/') ||
+            id.includes('node_modules/@remix-run/')
+          ) {
+            return 'react-bundle'
+          }
+          if (id.includes('node_modules/@supabase/')) {
+            return 'supabase'
+          }
+          if (id.includes('node_modules/')) {
+            return 'vendors'
           }
         }
       }
