@@ -15,12 +15,12 @@ const SignupPage = () => {
       
       {/* Background elements */}
       <div className="absolute top-1/3 right-1/3 w-96 h-96 bg-accent/20 rounded-full blur-[100px] -z-10" />
-      <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-teal-500/20 rounded-full blur-[100px] -z-10" />
+      <div className="absolute bottom-1/3 left-1/3 w-96 h-96 bg-accent-500/20 rounded-full blur-[100px] -z-10" />
       
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold font-syne text-white mb-2">Create an Account</h1>
-          <p className="text-gray-400">Join our community to discover and review AI tools.</p>
+          <p className="text-[#737373]">Join our community to discover and review AI tools.</p>
         </div>
         
         <AuthForm type="signup" />

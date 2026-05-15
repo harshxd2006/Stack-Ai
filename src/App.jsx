@@ -4,7 +4,6 @@ import { AnimatePresence } from 'framer-motion';
 import PageLayout from './components/layout/PageLayout';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import Spinner from './components/ui/Spinner';
-import IntroLandingPage from './pages/IntroLandingPage';
 
 // Lazy loading pages
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -24,32 +23,19 @@ const TrendingPage = lazy(() => import('./pages/TrendingPage'));
 
 function App() {
   const location = useLocation();
-  const [introSeen, setIntroSeen] = useState(true);
 
-  useEffect(() => {
-    try {
-      const seen = localStorage.getItem('intro_seen');
-      if (seen !== 'true') {
-        setIntroSeen(false);
-      }
-    } catch (e) {
-      setIntroSeen(true); // skip intro if localStorage blocked
-    }
-  }, []);
-
-  // Scroll to top on every route change or when intro finishes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location.pathname, introSeen]);
-
-  if (!introSeen) {
-    return <IntroLandingPage onComplete={() => setIntroSeen(true)} />;
-  }
+  }, [location.pathname]);
 
   return (
     <PageLayout>
       <AnimatePresence mode="wait">
-        <Suspense fallback={<div className="flex h-screen items-center justify-center"><Spinner size="lg" /></div>}>
+        <Suspense fallback={
+          <div className="flex h-screen items-center justify-center">
+            <Spinner size="lg" />
+          </div>
+        }>
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<HomePage />} />
             <Route path="/category/:slug" element={<CategoryPage />} />

@@ -9,7 +9,7 @@ const HeroSection = () => {
     <section className="relative pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/20 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-teal/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-accent/10 blur-[100px] rounded-full pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
@@ -19,8 +19,8 @@ const HeroSection = () => {
           animate="visible"
           className="max-w-4xl mx-auto"
         >
-          <motion.div variants={slideUp} className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-white/10">
-            <span className="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
+          <motion.div variants={slideUp} className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-[#262626]">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
             <span className="text-sm font-medium text-text-muted">Over 2,000+ AI Tools Indexed</span>
           </motion.div>
           

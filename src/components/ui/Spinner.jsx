@@ -9,7 +9,7 @@ const Spinner = ({ size = 'md', className = '' }) => {
 
   return (
     <div className={`relative ${sizes[size]} ${className}`}>
-      <div className="absolute inset-0 rounded-full border-2 border-white/10"></div>
+      <div className="absolute inset-0 rounded-full border-2 border-[#262626]"></div>
       <div className="absolute inset-0 rounded-full border-2 border-accent border-t-transparent animate-spin"></div>
     </div>
   );

@@ -11,9 +11,9 @@ const Button = React.forwardRef(({
   const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variants = {
-    primary: 'bg-accent hover:bg-accent-hover text-white shadow-[0_0_15px_rgba(108,99,255,0.3)] hover:shadow-[0_0_20px_rgba(108,99,255,0.5)]',
-    secondary: 'bg-teal hover:bg-teal/80 text-bg shadow-[0_0_15px_rgba(0,212,170,0.3)]',
-    outline: 'bg-transparent border border-white/20 hover:border-white/50 text-white hover:bg-white/5',
+    primary: 'bg-[#7C3AED] hover:bg-[#6D28D9] text-white shadow-[0_0_15px_rgba(108,99,255,0.3)] hover:shadow-[0_0_20px_rgba(108,99,255,0.5)]',
+    secondary: 'bg-accent hover:bg-accent/80 text-bg shadow-[0_0_15px_rgba(0,212,170,0.3)]',
+    outline: 'bg-transparent border border-white/20 hover:border-[#262626]0 text-white hover:bg-white/5',
     ghost: 'bg-transparent hover:bg-white/10 text-white',
     danger: 'bg-red-500/10 text-red-500 hover:bg-red-500/20 border border-red-500/20'
   };

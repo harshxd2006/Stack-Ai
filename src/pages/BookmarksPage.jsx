@@ -35,7 +35,7 @@ const BookmarksPage = () => {
       
       <div className="mb-8">
         <h1 className="text-3xl font-bold font-syne text-white mb-2">Your Bookmarks</h1>
-        <p className="text-gray-400">Tools you've saved for later</p>
+        <p className="text-[#737373]">Tools you've saved for later</p>
       </div>
 
       {loading ? (
@@ -51,9 +51,9 @@ const BookmarksPage = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center py-20 bg-card/30 border border-white/5 rounded-2xl">
+        <div className="text-center py-20 bg-card/30 border border-[#262626] rounded-2xl">
           <h3 className="text-xl text-white font-medium mb-2">No bookmarks yet</h3>
-          <p className="text-gray-400">Start exploring and save your favorite tools!</p>
+          <p className="text-[#737373]">Start exploring and save your favorite tools!</p>
         </div>
       )}
     </motion.div>

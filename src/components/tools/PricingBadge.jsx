@@ -7,11 +7,11 @@ const PricingBadge = ({ pricing, price }) => {
   let colorClass = 'bg-white/10 text-white';
   
   if (pricing.toLowerCase() === 'free') {
-    colorClass = 'bg-teal/20 text-teal border border-teal/20';
+    colorClass = 'bg-accent/20 text-accent border border-accent/20';
   } else if (pricing.toLowerCase() === 'freemium') {
     colorClass = 'bg-accent/20 text-accent border border-accent/20';
   } else if (pricing.toLowerCase() === 'paid') {
-    colorClass = 'bg-white/10 text-white border border-white/10';
+    colorClass = 'bg-white/10 text-white border border-[#262626]';
   }
 
   return (

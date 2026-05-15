@@ -23,7 +23,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
         <div className="space-y-3">
           {['free', 'freemium', 'paid'].map((model) => (
             <label key={model} className="flex items-center gap-3 cursor-pointer group">
-              <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${filters.pricing.includes(model) ? 'bg-accent border-accent' : 'border-white/20 group-hover:border-white/50'}`}>
+              <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${filters.pricing.includes(model) ? 'bg-accent border-accent' : 'border-white/20 group-hover:border-[#262626]0'}`}>
                 {filters.pricing.includes(model) && (
                   <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -43,7 +43,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
         <div className="space-y-3">
           {CATEGORIES.map((cat) => (
             <label key={cat.slug} className="flex items-center gap-3 cursor-pointer group">
-              <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${filters.categories.includes(cat.slug) ? 'bg-accent border-accent' : 'border-white/20 group-hover:border-white/50'}`}>
+              <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${filters.categories.includes(cat.slug) ? 'bg-accent border-accent' : 'border-white/20 group-hover:border-[#262626]0'}`}>
                 {filters.categories.includes(cat.slug) && (
                   <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />

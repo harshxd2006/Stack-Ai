@@ -13,7 +13,7 @@ const SearchDropdown = ({ query, onClose }) => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 10 }}
-        className="absolute top-full left-0 right-0 mt-2 glass-card border border-white/10 overflow-hidden z-50 max-h-96 overflow-y-auto"
+        className="absolute top-full left-0 right-0 mt-2 glass-card border border-[#262626] overflow-hidden z-50 max-h-96 overflow-y-auto"
       >
         {loading ? (
           <div className="p-8 flex justify-center">
@@ -28,7 +28,7 @@ const SearchDropdown = ({ query, onClose }) => {
                 onClick={onClose}
                 className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors"
               >
-                <div className="w-8 h-8 rounded-lg bg-card border border-white/5 flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-card border border-[#262626] flex items-center justify-center flex-shrink-0">
                   {tool.logo_url ? (
                     <img src={tool.logo_url} alt={tool.name} className="w-full h-full object-cover rounded-lg" />
                   ) : (

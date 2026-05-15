@@ -12,7 +12,7 @@ const AboutPage = () => {
     >
       <SEO title="About Us - Stack AI" />
       
-      <div className="max-w-3xl mx-auto glass p-8 md:p-12 rounded-2xl border border-white/10 mt-10">
+      <div className="max-w-3xl mx-auto glass p-8 md:p-12 rounded-2xl border border-[#262626] mt-10">
         <h1 className="text-4xl md:text-5xl font-bold font-syne mb-8 text-white">
           About <span className="text-gradient">Stack AI</span>
         </h1>
@@ -27,7 +27,7 @@ const AboutPage = () => {
           <p>
             Our mission is simple: to cut through the noise and provide a beautifully designed, meticulously organized directory of AI tools. We index tools across various categories including Audio, Copywriting, Coding, Image Generation, and more, ensuring you always have access to cutting-edge technology.
           </p>
-          <div className="pt-6 mt-6 border-t border-white/10">
+          <div className="pt-6 mt-6 border-t border-[#262626]">
             <h3 className="text-2xl font-semibold text-white mb-4">Our Vision</h3>
             <p>
               We believe that AI is fundamentally changing the way humans work and create. By providing a centralized, premium platform for AI tool discovery, we hope to empower individuals and teams to supercharge their productivity and unlock new creative possibilities.

@@ -8,7 +8,7 @@ const PasswordStrength = ({ password }) => {
   let label = 'Weak';
   
   if (strength >= 4) {
-    color = 'bg-teal';
+    color = 'bg-accent';
     label = 'Strong';
   } else if (strength >= 2) {
     color = 'bg-yellow-500';
@@ -19,7 +19,7 @@ const PasswordStrength = ({ password }) => {
     <div className="mt-2">
       <div className="flex items-center justify-between mb-1">
         <span className="text-xs text-text-muted">Password Strength:</span>
-        <span className={`text-xs font-medium ${strength >= 4 ? 'text-teal' : strength >= 2 ? 'text-yellow-500' : 'text-text-muted'}`}>
+        <span className={`text-xs font-medium ${strength >= 4 ? 'text-accent' : strength >= 2 ? 'text-yellow-500' : 'text-text-muted'}`}>
           {label}
         </span>
       </div>

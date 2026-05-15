@@ -2,7 +2,7 @@ import React from 'react';
 
 const ToolListToggle = ({ viewMode, setViewMode }) => {
   return (
-    <div className="flex items-center p-1 glass rounded-lg border-white/10 w-fit">
+    <div className="flex items-center p-1 glass rounded-lg border-[#262626] w-fit">
       <button
         onClick={() => setViewMode('grid')}
         className={`p-2 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white/10 text-white shadow-sm' : 'text-text-muted hover:text-white'}`}

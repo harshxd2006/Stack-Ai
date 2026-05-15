@@ -12,7 +12,7 @@ const PrivacyPolicyPage = () => {
     >
       <SEO title="Privacy Policy - Stack AI" />
       
-      <div className="max-w-3xl mx-auto glass p-8 md:p-12 rounded-2xl border border-white/10 mt-10">
+      <div className="max-w-3xl mx-auto glass p-8 md:p-12 rounded-2xl border border-[#262626] mt-10">
         <h1 className="text-4xl font-bold font-syne mb-8 text-white">
           Privacy <span className="text-gradient">Policy</span>
         </h1>
@@ -55,7 +55,7 @@ const PrivacyPolicyPage = () => {
             <p>
               If you have any questions about this Privacy Policy, please contact us through our official support channels.
             </p>
-            <p className="text-sm text-gray-500 mt-4">Last updated: {new Date().toLocaleDateString()}</p>
+            <p className="text-sm text-[#737373] mt-4">Last updated: {new Date().toLocaleDateString()}</p>
           </section>
         </div>
       </div>

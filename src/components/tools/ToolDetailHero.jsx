@@ -33,7 +33,7 @@ const ToolDetailHero = ({ tool }) => {
   if (!tool) return null;
 
   return (
-    <div className="relative pt-32 pb-16 overflow-hidden glass border-b border-white/5">
+    <div className="relative pt-32 pb-16 overflow-hidden glass border-b border-[#262626]">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/5 blur-[120px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -42,7 +42,7 @@ const ToolDetailHero = ({ tool }) => {
           animate={{ opacity: 1, y: 0 }}
           className="flex flex-col md:flex-row gap-8 items-start"
         >
-          <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-card border border-white/10 flex items-center justify-center p-4 shadow-xl flex-shrink-0">
+          <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-card border border-[#262626] flex items-center justify-center p-4 shadow-xl flex-shrink-0">
             {tool.logo_url ? (
               <img src={tool.logo_url} alt={tool.name} className="w-full h-full object-contain" />
             ) : (
@@ -54,7 +54,7 @@ const ToolDetailHero = ({ tool }) => {
             <div className="flex flex-wrap items-center gap-3 mb-2">
               <h1 className="text-3xl md:text-5xl font-bold font-display">{tool.name}</h1>
               {tool.is_verified && (
-                <svg className="text-teal w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <svg className="text-accent w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               )}
             </div>
             
@@ -65,7 +65,7 @@ const ToolDetailHero = ({ tool }) => {
               <div className="w-px h-6 bg-white/10"></div>
               <PricingBadge pricing={tool.pricing_model} price={tool.starting_price} />
               <div className="w-px h-6 bg-white/10"></div>
-              <span className="text-white/60 font-medium px-3 py-1 rounded-full bg-white/5 border border-white/5">
+              <span className="text-white/60 font-medium px-3 py-1 rounded-full bg-white/5 border border-[#262626]">
                 {tool.categories?.name || 'Category'}
               </span>
             </div>

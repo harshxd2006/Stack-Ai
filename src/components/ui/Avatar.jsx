@@ -9,7 +9,7 @@ const Avatar = ({ url, name, size = 'md', className = '' }) => {
   };
 
   return (
-    <div className={`relative rounded-full overflow-hidden bg-card border border-white/10 flex items-center justify-center flex-shrink-0 ${sizes[size]} ${className}`}>
+    <div className={`relative rounded-full overflow-hidden bg-card border border-[#262626] flex items-center justify-center flex-shrink-0 ${sizes[size]} ${className}`}>
       {url ? (
         <img src={url} alt={name || 'Avatar'} className="w-full h-full object-cover" />
       ) : (

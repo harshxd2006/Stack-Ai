@@ -17,7 +17,7 @@ const ToolGrid = ({ tools = [], loading = false }) => {
               <Skeleton className="h-6 w-3/4 mb-2" />
               <Skeleton className="h-4 w-full mb-1" />
               <Skeleton className="h-4 w-2/3 mb-4 flex-grow" />
-              <div className="mt-auto pt-4 border-t border-white/5 flex justify-between">
+              <div className="mt-auto pt-4 border-t border-[#262626] flex justify-between">
                 <Skeleton className="h-4 w-24" />
                 <Skeleton className="h-6 w-16 rounded-md" />
               </div>

@@ -31,9 +31,9 @@ const Modal = ({ isOpen, onClose, title, children }) => {
           initial={{ scale: 0.95, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.95, opacity: 0, y: 20 }}
-          className="relative w-full max-w-lg bg-card border border-white/10 rounded-2xl shadow-2xl overflow-hidden"
+          className="relative w-full max-w-lg bg-card border border-[#262626] rounded-2xl shadow-2xl overflow-hidden"
         >
-          <div className="flex items-center justify-between p-6 border-b border-white/5">
+          <div className="flex items-center justify-between p-6 border-b border-[#262626]">
             <h3 className="text-xl font-bold font-display">{title}</h3>
             <button 
               onClick={onClose}

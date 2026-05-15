@@ -21,7 +21,7 @@ const GoogleButton = ({ children = 'Continue with Google' }) => {
     <Button 
       type="button" 
       variant="outline" 
-      className="w-full relative glass hover:bg-white/5 border-white/10" 
+      className="w-full relative glass hover:bg-white/5 border-[#262626]" 
       onClick={handleGoogleSignIn}
       disabled={loading}
     >

@@ -37,7 +37,7 @@ const CategoryPage = () => {
         <h1 className="text-4xl md:text-5xl font-bold font-syne mb-4 text-white capitalize drop-shadow-md">
           {categorySlug?.replace(/-/g, ' ')} AI Tools
         </h1>
-        <p className="text-gray-400 max-w-2xl mx-auto">
+        <p className="text-[#737373] max-w-2xl mx-auto">
           Explore the best tools for {categorySlug?.replace(/-/g, ' ')}. Drag left or right to explore the interactive ring.
         </p>
       </div>
@@ -51,9 +51,9 @@ const CategoryPage = () => {
           <GSAPRingCarousel items={carouselItems} onItemClick={handleToolClick} />
         </div>
       ) : (
-        <div className="text-center py-20 bg-card/30 border border-white/5 rounded-2xl max-w-3xl mx-auto">
+        <div className="text-center py-20 bg-card/30 border border-[#262626] rounded-2xl max-w-3xl mx-auto">
           <h3 className="text-xl text-white font-medium mb-2">No tools found</h3>
-          <p className="text-gray-400">There are currently no AI tools listed in this category.</p>
+          <p className="text-[#737373]">There are currently no AI tools listed in this category.</p>
         </div>
       )}
     </motion.div>

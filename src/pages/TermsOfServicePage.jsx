@@ -12,7 +12,7 @@ const TermsOfServicePage = () => {
     >
       <SEO title="Terms of Service - Stack AI" />
       
-      <div className="max-w-3xl mx-auto glass p-8 md:p-12 rounded-2xl border border-white/10 mt-10">
+      <div className="max-w-3xl mx-auto glass p-8 md:p-12 rounded-2xl border border-[#262626] mt-10">
         <h1 className="text-4xl font-bold font-syne mb-8 text-white">
           Terms of <span className="text-gradient">Service</span>
         </h1>
@@ -55,7 +55,7 @@ const TermsOfServicePage = () => {
             <p>
               Stack AI is provided on an "AS IS" and "AS AVAILABLE" basis. We make no representations or warranties of any kind, express or implied, regarding the accuracy, reliability, or availability of the tools listed on our platform.
             </p>
-            <p className="text-sm text-gray-500 mt-6">Last updated: {new Date().toLocaleDateString()}</p>
+            <p className="text-sm text-[#737373] mt-6">Last updated: {new Date().toLocaleDateString()}</p>
           </section>
         </div>
       </div>

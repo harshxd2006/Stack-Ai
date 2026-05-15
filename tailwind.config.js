@@ -8,10 +8,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#0A0A0F',
-        card: '#12121A',
-        accent: '#6C63FF',
-        teal: '#00D4AA',
+        bg: '#09090B',
+        card: '#141414',
+        cardElevated: '#1A1A1A',
+        accent: '#7C3AED',
       },
       fontFamily: {
         sans: ['"DM Sans"', 'sans-serif'],

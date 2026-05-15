@@ -3,7 +3,7 @@ import { SORT_OPTIONS } from '../../utils/constants';
 
 const SortBar = ({ sort, setSort, totalResults }) => {
   return (
-    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 py-4 border-b border-white/5 mb-6">
+    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 py-4 border-b border-[#262626] mb-6">
       <div className="text-text-muted text-sm">
         Showing <span className="font-semibold text-white">{totalResults}</span> results
       </div>
@@ -13,7 +13,7 @@ const SortBar = ({ sort, setSort, totalResults }) => {
         <select 
           value={sort}
           onChange={(e) => setSort(e.target.value)}
-          className="bg-card border border-white/10 rounded-lg px-3 py-1.5 text-sm outline-none focus:border-accent"
+          className="bg-card border border-[#262626] rounded-lg px-3 py-1.5 text-sm outline-none focus:border-accent"
         >
           {SORT_OPTIONS.map(opt => (
             <option key={opt.value} value={opt.value}>{opt.label}</option>

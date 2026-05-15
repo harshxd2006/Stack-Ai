@@ -18,7 +18,7 @@ const NotFoundPage = () => {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', duration: 0.8 }}
-        className="text-[150px] md:text-[200px] font-black text-transparent bg-clip-text bg-gradient-to-r from-accent to-teal-400 leading-none mb-4"
+        className="text-[150px] md:text-[200px] font-black text-transparent bg-clip-text bg-gradient-to-r from-accent to-[#6D28D9]-400 leading-none mb-4"
       >
         404
       </motion.div>
@@ -27,7 +27,7 @@ const NotFoundPage = () => {
         Oops! You've drifted into empty space.
       </h1>
       
-      <p className="text-gray-400 max-w-lg mb-8 text-lg">
+      <p className="text-[#737373] max-w-lg mb-8 text-lg">
         The page you are looking for doesn't exist or has been moved. Let's get you back to familiar territory.
       </p>
       

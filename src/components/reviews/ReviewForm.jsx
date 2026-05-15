@@ -76,7 +76,7 @@ const ReviewForm = ({ toolId, onReviewSubmitted }) => {
         <label className="block text-sm font-medium text-text-muted mb-2">Your Name</label>
         <input
           type="text"
-          className="w-full bg-card border border-white/10 rounded-xl p-3 text-white outline-none focus:border-accent"
+          className="w-full bg-card border border-[#262626] rounded-xl p-3 text-white outline-none focus:border-accent"
           placeholder="Enter your name"
           value={reviewerName}
           onChange={(e) => setReviewerName(e.target.value)}
@@ -91,7 +91,7 @@ const ReviewForm = ({ toolId, onReviewSubmitted }) => {
       <div className="mb-4">
         <label className="block text-sm font-medium text-text-muted mb-2">Your Review</label>
         <textarea
-          className="w-full bg-card border border-white/10 rounded-xl p-3 text-white outline-none focus:border-accent min-h-[100px] resize-y"
+          className="w-full bg-card border border-[#262626] rounded-xl p-3 text-white outline-none focus:border-accent min-h-[100px] resize-y"
           placeholder="What do you think about this tool?"
           value={comment}
           onChange={(e) => setComment(e.target.value)}

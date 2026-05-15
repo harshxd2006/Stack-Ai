@@ -6,15 +6,14 @@
 
 @layer base {
   :root {
-    --bg: #0A0A0F;
-    --card: #12121A;
-    --card-hover: #1A1A24;
-    --accent: #6C63FF;
-    --accent-hover: #5A52D9;
-    --teal: #00D4AA;
+    --bg: #09090B;
+    --card: #141414;
+    --card-hover: #1A1A1A;
+    --accent: #7C3AED;
+    --accent-hover: #6D28D9;
     --text-main: #FFFFFF;
-    --text-muted: #9CA3AF;
-    --border: #2A2A35;
+    --text-muted: #737373;
+    --border: #262626;
   }
   
   body {
@@ -28,15 +27,15 @@
 
 @layer utilities {
   .glass {
-    @apply bg-card/60 backdrop-blur-md border border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+    @apply bg-[#141414]/60 backdrop-blur-md border border-[#262626] shadow-[0_4px_30px_rgba(0,0,0,0.1)];
   }
   
   .glass-card {
-    @apply glass rounded-2xl hover:bg-card/80 transition-all duration-300;
+    @apply glass rounded-2xl hover:bg-[#1A1A1A]/80 transition-all duration-300;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-teal;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-[#6D28D9];
   }
 }
 

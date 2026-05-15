@@ -15,9 +15,9 @@ const TrendingPage = () => {
       
       <div className="mb-10 text-center">
         <h1 className="text-4xl md:text-5xl font-bold font-syne mb-4 text-white">
-          Trending <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6C63FF] to-[#00D4AA]">Engine</span>
+          Trending <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-[#6D28D9]">Engine</span>
         </h1>
-        <p className="text-gray-400 max-w-2xl mx-auto font-dm-sans">
+        <p className="text-[#737373] max-w-2xl mx-auto font-dm-sans">
           Our intelligent anomaly detection engine tracks real-time traffic to surface the fastest-growing AI tools.
         </p>
       </div>

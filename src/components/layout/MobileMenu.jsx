@@ -22,7 +22,7 @@ const MobileMenu = ({ isOpen, onClose, user, onSignOut }) => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: '100%' }}
           transition={{ type: 'tween', duration: 0.3 }}
-          className="fixed inset-0 z-[10000] bg-[#0A0A0F] flex flex-col pt-24 px-6 pb-6"
+          className="fixed inset-0 z-[10000] bg-[#09090B] flex flex-col pt-24 px-6 pb-6"
         >
           <button 
             className="absolute top-6 right-6 p-2 text-white"
@@ -33,18 +33,18 @@ const MobileMenu = ({ isOpen, onClose, user, onSignOut }) => {
 
           <div className="flex flex-col gap-6 text-lg">
             <Link to="/search" onClick={onClose} className="text-white font-medium">Search</Link>
-            <Link to="/trending" onClick={onClose} className="text-[#6C63FF] font-medium flex items-center gap-2">
+            <Link to="/trending" onClick={onClose} className="text-[#7C3AED] font-medium flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
               Trending Engine
             </Link>
             
             {user?.email === import.meta.env.VITE_ADMIN_EMAIL && (
-              <Link to="/admin" onClick={onClose} className="text-[#00D4AA] font-bold">Admin Tools</Link>
+              <Link to="/admin" onClick={onClose} className="text-[#7C3AED] font-bold">Admin Tools</Link>
             )}
             
             <div className="flex flex-col gap-3">
               <span className="text-white/60 font-medium text-sm uppercase tracking-wider">Categories</span>
-              <div className="flex flex-col gap-3 pl-4 border-l border-white/10">
+              <div className="flex flex-col gap-3 pl-4 border-l border-[#262626]">
                 {(categories || []).map(cat => (
                   <Link 
                     key={cat.slug} 

@@ -15,12 +15,12 @@ const LoginPage = () => {
       
       {/* Background elements */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[100px] -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500/20 rounded-full blur-[100px] -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/20 rounded-full blur-[100px] -z-10" />
       
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold font-syne text-white mb-2">Welcome Back</h1>
-          <p className="text-gray-400">Log in to access your saved tools and reviews.</p>
+          <p className="text-[#737373]">Log in to access your saved tools and reviews.</p>
         </div>
         
         <AuthForm type="login" />

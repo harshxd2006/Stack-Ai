@@ -34,7 +34,7 @@ const ToolCard = ({ tool }) => {
           </div>
         )}
         
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#262626]">
           <StarRating rating={tool.average_rating || 0} count={tool.review_count || 0} size="sm" />
           <div className="text-xs font-medium text-white/50 px-2 py-1 rounded-md bg-white/5">
             {tool.categories?.name || 'AI Tool'}

@@ -21,13 +21,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[9999] glass border-b border-white/5 h-20">
+    <nav className="fixed top-0 left-0 right-0 z-[9999] glass border-b border-[#262626] h-20">
       <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
         <div className="flex items-center gap-4 md:gap-8">
           {!isHome && (
             <button 
               onClick={() => navigate(-1)}
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-[#262626] text-white/80 hover:bg-white/10 hover:text-white transition-colors"
               aria-label="Go back"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -42,7 +42,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-6">
             <Link to="/search" className="text-text-muted hover:text-white transition-colors">Search</Link>
             <Link to="/trending" className="text-text-muted hover:text-white transition-colors flex items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#6C63FF]"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#7C3AED]"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
               Trending
             </Link>
             <div className="relative group">
@@ -55,7 +55,7 @@ const Navbar = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 group-hover:rotate-180 ${categoryDropdownOpen ? 'rotate-180' : ''}`}><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
               <div className={`absolute top-[100%] left-0 pt-2 w-56 transition-all duration-200 z-[100] ${categoryDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0'}`}>
-                <div className="glass-card rounded-xl py-2 shadow-2xl border border-white/10 bg-[#0A0A0F]/95 backdrop-blur-xl">
+                <div className="glass-card rounded-xl py-2 shadow-2xl border border-[#262626] bg-[#09090B]/95 backdrop-blur-xl">
                   {(dbCategories || []).length > 0 ? (
                     dbCategories.map(cat => (
                       <Link 
@@ -80,7 +80,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-4">
           {user?.email === import.meta.env.VITE_ADMIN_EMAIL && (
-            <Link to="/admin" className="text-[#00D4AA] hover:text-white transition-colors font-medium mr-2">Admin Tools</Link>
+            <Link to="/admin" className="text-[#7C3AED] hover:text-white transition-colors font-medium mr-2">Admin Tools</Link>
           )}
           {user ? (
             <>

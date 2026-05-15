@@ -69,7 +69,7 @@ export function detectTrendingTools(viewsData) {
       color = "#FF4B4B"; // Red
     } else if (zScore >= 0.5) {
       label = "📈 Rising";
-      color = "#00D4AA"; // Teal
+      color = "#7C3AED"; // Violet
     } else if (zScore <= -1.0) {
       label = "📉 Declining";
       color = "#FF8F00"; // Orange

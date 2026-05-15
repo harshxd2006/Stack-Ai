@@ -480,19 +480,19 @@ const ToolExtendedDetails = ({ tool }) => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white/5 p-5 rounded-xl border border-white/5">
+            <div className="bg-white/5 p-5 rounded-xl border border-[#262626]">
               <h4 className="font-medium text-white mb-2 flex items-center gap-2">
                 <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                 Who is it for?
               </h4>
-              <p className="text-sm text-gray-400">{currentData.forText}</p>
+              <p className="text-sm text-[#737373]">{currentData.forText}</p>
             </div>
-            <div className="bg-white/5 p-5 rounded-xl border border-white/5">
+            <div className="bg-white/5 p-5 rounded-xl border border-[#262626]">
               <h4 className="font-medium text-white mb-2 flex items-center gap-2">
                 <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
                 Why it stands out
               </h4>
-              <p className="text-sm text-gray-400">{currentData.whyText}</p>
+              <p className="text-sm text-[#737373]">{currentData.whyText}</p>
             </div>
           </div>
         </div>
@@ -501,20 +501,20 @@ const ToolExtendedDetails = ({ tool }) => {
       {/* 4. Screenshots / Demo */}
       <section id="screenshots">
         <h2 className="text-2xl font-bold font-syne text-white mb-6">Interface Preview</h2>
-        <div className="relative group rounded-2xl overflow-hidden border border-white/10 aspect-video bg-card">
+        <div className="relative group rounded-2xl overflow-hidden border border-[#262626] aspect-video bg-card">
           {/* Mock Screenshot Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-card via-[#1A1A24] to-[#16161E] flex flex-col">
             {/* Mock Header */}
-            <div className="h-10 border-b border-white/5 flex items-center px-4 gap-2">
+            <div className="h-10 border-b border-[#262626] flex items-center px-4 gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-white/20"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-white/20"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-white/20"></div>
             </div>
             {/* Mock Body */}
             <div className="flex-1 flex p-4 gap-4">
-              <div className="w-1/4 h-full bg-white/5 rounded-lg border border-white/5"></div>
-              <div className="flex-1 h-full bg-white/5 rounded-lg border border-white/5 flex items-center justify-center">
-                <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md cursor-pointer hover:bg-white/10 transition-colors">
+              <div className="w-1/4 h-full bg-white/5 rounded-lg border border-[#262626]"></div>
+              <div className="flex-1 h-full bg-white/5 rounded-lg border border-[#262626] flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-white/5 border border-[#262626] flex items-center justify-center backdrop-blur-md cursor-pointer hover:bg-white/10 transition-colors">
                    <svg className="w-6 h-6 text-white/70 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                 </div>
               </div>
@@ -531,13 +531,13 @@ const ToolExtendedDetails = ({ tool }) => {
             <motion.div 
               key={idx}
               whileHover={{ y: -2 }}
-              className="bg-card border border-white/5 p-6 rounded-2xl hover:border-white/10 transition-colors"
+              className="bg-card border border-[#262626] p-6 rounded-2xl hover:border-[#262626] transition-colors"
             >
-              <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-white/70 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-white/5 border border-[#262626] flex items-center justify-center text-white/70 mb-4">
                 {feature.icon}
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{feature.description}</p>
+              <p className="text-sm text-[#737373] leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -548,11 +548,11 @@ const ToolExtendedDetails = ({ tool }) => {
         <h2 className="text-2xl font-bold font-syne text-white mb-6">Real-World Use Cases</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {useCases.map((useCase, idx) => (
-            <div key={idx} className="bg-card p-6 border border-white/5 rounded-2xl border-t-2 border-t-white/20">
+            <div key={idx} className="bg-card p-6 border border-[#262626] rounded-2xl border-t-2 border-t-white/20">
               <h3 className="text-base font-semibold text-white mb-4">{useCase.role}</h3>
               <ul className="space-y-3">
                 {useCase.benefits.map((benefit, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
+                  <li key={i} className="flex items-start gap-2 text-sm text-[#737373]">
                     <svg className="w-4 h-4 text-white/40 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -570,13 +570,13 @@ const ToolExtendedDetails = ({ tool }) => {
         <h2 className="text-2xl font-bold font-syne text-white mb-6">How It Works</h2>
         <div className="space-y-3">
           {steps.map((step, idx) => (
-            <div key={idx} className="flex gap-4 p-5 bg-card border border-white/5 rounded-2xl">
+            <div key={idx} className="flex gap-4 p-5 bg-card border border-[#262626] rounded-2xl">
               <div className="w-8 h-8 rounded-full bg-white/10 text-white text-sm flex items-center justify-center font-medium shrink-0">
                 {step.step}
               </div>
               <div>
                 <h3 className="text-base font-semibold text-white mb-1">{step.title}</h3>
-                <p className="text-sm text-gray-400">{step.description}</p>
+                <p className="text-sm text-[#737373]">{step.description}</p>
               </div>
             </div>
           ))}
@@ -586,27 +586,27 @@ const ToolExtendedDetails = ({ tool }) => {
       {/* 6. Pros & Cons */}
       <section id="pros-cons">
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-card border border-white/5 rounded-2xl p-6">
+          <div className="bg-card border border-[#262626] rounded-2xl p-6">
             <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
               <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
               Strengths
             </h3>
             <ul className="space-y-3">
               {prosCons.pros.map((pro, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-sm text-gray-400">
+                <li key={idx} className="flex items-start gap-3 text-sm text-[#737373]">
                   <span className="text-white/30 mt-0.5">+</span> {pro}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="bg-card border border-white/5 rounded-2xl p-6">
+          <div className="bg-card border border-[#262626] rounded-2xl p-6">
             <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
               <svg className="w-5 h-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" /></svg>
               Limitations
             </h3>
             <ul className="space-y-3">
               {prosCons.cons.map((con, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-sm text-gray-400">
+                <li key={idx} className="flex items-start gap-3 text-sm text-[#737373]">
                   <span className="text-white/30 mt-0.5">-</span> {con}
                 </li>
               ))}
@@ -620,7 +620,7 @@ const ToolExtendedDetails = ({ tool }) => {
         <h2 className="text-2xl font-bold font-syne text-white mb-6">Integrations</h2>
         <div className="flex flex-wrap gap-3">
           {integrations.map((app, idx) => (
-            <div key={idx} className="px-4 py-2 rounded-full bg-card border border-white/10 text-gray-300 text-sm flex items-center gap-2 hover:bg-white/5 transition-colors cursor-default">
+            <div key={idx} className="px-4 py-2 rounded-full bg-card border border-[#262626] text-gray-300 text-sm flex items-center gap-2 hover:bg-white/5 transition-colors cursor-default">
               <div className="w-2 h-2 rounded-full bg-white/30"></div>
               {app}
             </div>
@@ -633,16 +633,16 @@ const ToolExtendedDetails = ({ tool }) => {
         <h2 className="text-2xl font-bold font-syne text-white mb-6">Pricing Plans</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {pricingPlans.map((plan, idx) => (
-            <div key={idx} className={`rounded-2xl p-6 border ${plan.highlighted ? 'bg-white/5 border-white/20 relative' : 'bg-card border-white/5'}`}>
+            <div key={idx} className={`rounded-2xl p-6 border ${plan.highlighted ? 'bg-white/5 border-white/20 relative' : 'bg-card border-[#262626]'}`}>
               {plan.highlighted && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1A1A24] border border-white/10 text-white text-xs font-bold px-3 py-1 rounded-full">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1A1A24] border border-[#262626] text-white text-xs font-bold px-3 py-1 rounded-full">
                   RECOMMENDED
                 </div>
               )}
               <h3 className="text-lg font-medium text-white mb-2">{plan.name}</h3>
               <div className="mb-6">
                 <span className="text-3xl font-bold text-white">{plan.price}</span>
-                {plan.period && <span className="text-gray-400 text-sm ml-1">/{plan.period}</span>}
+                {plan.period && <span className="text-[#737373] text-sm ml-1">/{plan.period}</span>}
               </div>
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, i) => (
@@ -664,13 +664,13 @@ const ToolExtendedDetails = ({ tool }) => {
         <h2 className="text-2xl font-bold font-syne text-white mb-6">Frequently Asked Questions</h2>
         <div className="space-y-3">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="bg-card border border-white/5 rounded-xl overflow-hidden">
+            <div key={idx} className="bg-card border border-[#262626] rounded-xl overflow-hidden">
               <button 
                 onClick={() => toggleFaq(idx)}
                 className="w-full text-left px-6 py-4 flex items-center justify-between hover:bg-white/5 transition-colors"
               >
                 <span className="font-medium text-white">{faq.question}</span>
-                <svg className={`w-5 h-5 text-gray-400 transition-transform ${activeFaq === idx ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className={`w-5 h-5 text-[#737373] transition-transform ${activeFaq === idx ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
@@ -680,7 +680,7 @@ const ToolExtendedDetails = ({ tool }) => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    className="px-6 pb-4 text-gray-400 text-sm"
+                    className="px-6 pb-4 text-[#737373] text-sm"
                   >
                     {faq.answer}
                   </motion.div>

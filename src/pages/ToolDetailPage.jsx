@@ -31,7 +31,7 @@ const ToolDetailPage = () => {
     return (
       <div className="min-h-screen pt-32 px-4 text-center">
         <h1 className="text-3xl font-bold text-white mb-4">Tool not found</h1>
-        <p className="text-gray-400">The tool you're looking for doesn't exist.</p>
+        <p className="text-[#737373]">The tool you're looking for doesn't exist.</p>
       </div>
     );
   }

@@ -27,7 +27,7 @@ const Tooltip = ({ children, content, position = 'top', className = '' }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: position === 'top' ? 5 : position === 'bottom' ? -5 : 0 }}
             transition={{ duration: 0.15 }}
-            className={`absolute z-50 whitespace-nowrap px-2 py-1 text-xs font-medium text-white bg-card border border-white/10 rounded-md shadow-xl ${positionClasses[position]}`}
+            className={`absolute z-50 whitespace-nowrap px-2 py-1 text-xs font-medium text-white bg-card border border-[#262626] rounded-md shadow-xl ${positionClasses[position]}`}
           >
             {content}
           </motion.div>

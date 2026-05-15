@@ -16,7 +16,7 @@ const AdminPage = () => {
         <h1 className="text-4xl md:text-5xl font-bold font-syne mb-4 text-white">
           Admin Dashboard
         </h1>
-        <p className="text-gray-400 max-w-2xl mx-auto font-dm-sans">
+        <p className="text-[#737373] max-w-2xl mx-auto font-dm-sans">
           Manage platform data and generate new tool entries.
         </p>
       </div>

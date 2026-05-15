@@ -22,7 +22,7 @@ const ActiveFilters = ({ filters, setFilters }) => {
       <span className="text-sm text-text-muted mr-2">Active Filters:</span>
       
       {filters.pricing.map(model => (
-        <span key={model} className="inline-flex items-center gap-1 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium">
+        <span key={model} className="inline-flex items-center gap-1 px-3 py-1 bg-white/5 border border-[#262626] rounded-full text-xs font-medium">
           <span className="capitalize">{model}</span>
           <button onClick={() => removePricing(model)} className="hover:text-accent ml-1">
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
@@ -31,7 +31,7 @@ const ActiveFilters = ({ filters, setFilters }) => {
       ))}
       
       {filters.categories.map(slug => (
-        <span key={slug} className="inline-flex items-center gap-1 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-medium">
+        <span key={slug} className="inline-flex items-center gap-1 px-3 py-1 bg-white/5 border border-[#262626] rounded-full text-xs font-medium">
           <span className="capitalize">{slug.replace('-', ' ')}</span>
           <button onClick={() => removeCategory(slug)} className="hover:text-accent ml-1">
             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>

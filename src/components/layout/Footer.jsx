@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="border-t border-white/5 bg-card mt-auto">
+    <footer className="border-t border-[#262626] bg-card mt-auto">
       <div className="max-w-7xl mx-auto px-4 py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div>
           <Link to="/" className="text-2xl font-display font-bold text-gradient">
@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/5 py-6 text-center text-sm text-text-muted">
+      <div className="border-t border-[#262626] py-6 text-center text-sm text-text-muted">
         <p>&copy; {new Date().getFullYear()} Stack AI. All rights reserved.</p>
       </div>
     </footer>

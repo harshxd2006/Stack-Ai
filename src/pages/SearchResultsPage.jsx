@@ -32,7 +32,7 @@ const SearchResultsPage = () => {
     >
       <SEO title={query ? `Search: ${query} - StackAi` : 'Search AI Tools - StackAi'} />
       
-      <div className="mb-12 flex flex-col md:flex-row gap-4 items-center justify-between bg-card p-4 rounded-2xl border border-white/5 shadow-lg relative z-20">
+      <div className="mb-12 flex flex-col md:flex-row gap-4 items-center justify-between bg-card p-4 rounded-2xl border border-[#262626] shadow-lg relative z-20">
         <div className="w-full md:flex-grow">
           <SearchBar className="w-full" />
         </div>
@@ -42,7 +42,7 @@ const SearchResultsPage = () => {
             <select 
               value={pricingFilter}
               onChange={(e) => setPricingFilter(e.target.value)}
-              className="w-full sm:w-40 bg-white/5 border border-white/10 rounded-xl pl-4 pr-10 py-3.5 text-white focus:outline-none focus:border-accent appearance-none cursor-pointer"
+              className="w-full sm:w-40 bg-white/5 border border-[#262626] rounded-xl pl-4 pr-10 py-3.5 text-white focus:outline-none focus:border-accent appearance-none cursor-pointer"
             >
               <option className="bg-[#0B0F19] text-white" value="all">All Pricing</option>
               <option className="bg-[#0B0F19] text-white" value="free">Free</option>

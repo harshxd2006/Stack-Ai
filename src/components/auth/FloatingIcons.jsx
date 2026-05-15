@@ -33,7 +33,7 @@ const FloatingIcons = () => {
         </motion.div>
       ))}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal/20 blur-[100px] rounded-full" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/20 blur-[100px] rounded-full" />
     </div>
   );
 };
