@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollToTop from '../ui/ScrollToTop';
+import ChatBot from '../ui/ChatBot';
 
 const PageLayout = ({ children }) => {
   return (
@@ -12,6 +13,7 @@ const PageLayout = ({ children }) => {
       </main>
       <Footer />
       <ScrollToTop />
+      <ChatBot />
     </div>
   );
 };
